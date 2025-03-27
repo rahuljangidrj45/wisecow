@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Log in to Docker Hub
-        run: echo "dckr_pat_KzPbpFiRSfthXLXENa6Jyn-6v2o" | docker login -u nainani344sumit --password-stdin
+        run: echo "dckr_pat_-dvD4lciPVPnczO3tGpubEHi9tI" | docker login -u nainani344sumit --password-stdin
 
       - name: Build Docker Image
         run: docker build -t nainani344sumit/wisecow:latest .
