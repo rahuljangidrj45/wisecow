@@ -31,9 +31,9 @@ jobs:
       - name: Setup Kubernetes Config
         run: |
          mkdir -p $HOME/.kube
-         echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
+         echo "${{ vars.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
 
       - name: Deploy to Kubernetes
         run: |
-          kubectl set image deployment/wisecow wisecow=${{ secrets.DOCKERHUB_USERNAME }}/wisecow:latest
+          kubectl set image deployment/wisecow wisecow=${{ vars.DOCKER_USERNAME }}/wisecow:latest
           kubectl rollout status deployment/wisecow
