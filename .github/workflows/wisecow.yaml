@@ -28,8 +28,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set up Kubeconfig
-        run: echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+      - name: Setup Kubernetes Config
+        run: |
+         mkdir -p $HOME/.kube
+         echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
 
       - name: Deploy to Kubernetes
         run: |
